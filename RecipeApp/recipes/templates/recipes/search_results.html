@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container search-results-container">
+    <div class="search-card">
+        <div class="search-card-header">
+            <h2 class="search-title">Search Results</h2>
+        </div>
+        <div class="search-card-body">
+            {% if recipes %}
+                <ul class="search-list">
+                    {% for recipe in recipes %}
+                        <li class="search-list-item">
+                            <a href="{% url 'recipe_detail' recipe.id %}" class="search-link">
+                                <strong>{{ recipe.title }}</strong>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results-message">No recipes found with the given ingredients.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

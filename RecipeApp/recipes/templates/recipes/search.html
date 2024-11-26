@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Card for the Search Form -->
+    <div class="search-card shadow-lg">
+        <div class="card-body-custom">
+            <h1 class="search-title text-center mb-4">Search Recipes by Ingredients</h1>
+
+            <!-- Form Starts -->
+            <form method="GET" action="{% url 'search_recipes' %}">
+                <!-- Display form fields -->
+                <div class="mb-3">
+                    <label for="ingredients" class="form-label">Enter ingredients (comma-separated):</label>
+                    {{ form.ingredients }}
+                    
+                </div>
+                <button type="submit" class="submit-btn w-100">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

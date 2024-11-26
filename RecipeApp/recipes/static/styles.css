@@ -1,0 +1,161 @@
+.recipe-image {
+    width: 100%; /* Makes the image take up the full width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 300px; /* Limits the image size */
+    object-fit: cover; /* Ensures the image covers the defined area without distortion */
+    border-radius: 10px; /* Optional: adds rounded corners */
+}
+/* General body styling */
+body {
+    background-color: #f4f4f4;
+    font-family: 'Georgia', serif;
+    color: #333;
+    font-size: 1.25rem;  /* Increased font size for body text */
+    background-image: url('{% static "path_to_your_food_image.jpg" %}'); /* Replace with the correct path to your image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Main content styling */
+.container {
+    max-width: 900px;
+    margin-top: 50px;
+}
+
+
+/* Form Styling */
+.form-control {
+    border-radius: 25px;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+    border-color: #007bff;
+}
+
+
+
+/* Card for Search Form */
+.search-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Title */
+.search-title {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Form Input Field */
+.ingredient-input {
+    border-radius: 25px;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+    border-color: #007bff;
+}
+
+/* Button */
+.submit-btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+
+/*search_result*/
+
+.search-results-container {
+    margin-top: 3rem;
+}
+
+/* Card styles */
+.search-card {
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.search-card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.search-title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Card body */
+.search-card-body {
+    padding: 1rem;
+}
+
+/* List styles */
+.search-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-list-item {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-list-item:last-child {
+    border-bottom: none;
+}
+
+.search-link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.search-link:hover {
+    color: #0056b3;
+}
+
+/* No results message */
+.no-results-message {
+    color: #6c757d;
+    text-align: center;
+    font-style: italic;
+}
