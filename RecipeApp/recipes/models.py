@@ -20,17 +20,14 @@ class Recipe(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
 
-        if self.image:
-            img_path = self.image.path
-            img = Image.open(img_path)
+        if img.height > 300 or img.width > 300:
+           output_size = (300, 300)
+           img = img.resize(output_size, Image.Resampling.LANCZOS)  # Updated line
+           img.save(self.image.path)
 
-            # Resize image
-            output_size = (200, 200)  # Desired dimensions
-            img = img.resize(output_size, Image.ANTIALIAS)
-            img.save(img_path)  # Save resized image
-
-
+     
 class UserFavorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)

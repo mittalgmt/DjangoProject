@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Add Recipe</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Recipe Form -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Recipe Title</label>
+            {{ recipe_form.title }}
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Recipe Image</label>
+            {{ recipe_form.image }}
+        </div>
+
+        <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions</label>
+            {{ recipe_form.instructions }}
+        </div>
+
+        <!-- Ingredients -->
+        <h4>Ingredients:</h4>
+        <div class="ingredient-container">
+            <div class="ingredient-item">
+                <input type="text" name="ingredients" class="form-control" placeholder="Ingredient Name" required>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary add-ingredient">Add Another Ingredient</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Save Recipe</button>
+    </form>
+</div>
+
+<script>
+    document.querySelector('.add-ingredient').addEventListener('click', function() {
+        var ingredientContainer = document.querySelector('.ingredient-container');
+        var newIngredient = document.createElement('div');
+        newIngredient.classList.add('ingredient-item');
+        newIngredient.innerHTML = '<input type="text" name="ingredients" class="form-control" placeholder="Ingredient Name" required>';
+        ingredientContainer.appendChild(newIngredient);
+    });
+</script>
+{% endblock %}
