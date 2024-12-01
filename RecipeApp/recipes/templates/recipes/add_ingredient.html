@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Add Ingredient</h2>
+    <form method="POST" class="shadow p-4 rounded bg-light">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="ingredient_name" class="form-label fw-bold">Ingredient Name</label>
+            <input 
+                type="text" 
+                name="ingredient_name" 
+                id="ingredient_name" 
+                class="form-control" 
+                placeholder="Enter ingredient name" 
+                required
+            >
+        </div>
+
+        <button type="submit" class="btn btn-success mt-3 w-100">Add Ingredient</button>
+    </form>
+
+    <div class="mt-4">
+        <a href="{% url 'add_recipe' %}" class="btn btn-secondary w-100">Back to Add Recipe</a>
+    </div>
+</div>
+{% endblock %}
