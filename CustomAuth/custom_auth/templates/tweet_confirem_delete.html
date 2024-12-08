@@ -1,0 +1,17 @@
+{% extends "body.html" %}
+
+{% block title %}
+ Custom Auth
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mt-4">
+    Ary you sure you want to Delete the tweet?
+  </h1>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-success" href="{% url 'tweet_list' %}">Cancel</a>
+  </form>
+
+{% endblock %}

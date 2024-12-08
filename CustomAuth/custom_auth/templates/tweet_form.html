@@ -1,0 +1,27 @@
+{% extends "body.html" %}
+
+{% block title %}
+ Custom Auth
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-center mt-4">
+    Authentication Django Project
+  </h1>
+  <h2>
+    {% if form.instance.pk %} 
+    Edit Tweet 
+    {% else %}
+    Create Tweet
+     {% endif %}
+
+     <form method="post" enctype="multipart/form-data" class ="form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-warning" type="submit">
+        New Tweet
+      </button>
+     </form>
+     <a href="{% url 'tweet_list' %}">Back to List</a>
+  </h2>
+{% endblock %}
