@@ -1,25 +1,35 @@
 {% extends "body.html" %}
 
 {% block title %}
- Custom Auth
+Custom Auth
 {% endblock %}
 
 {% block content %}
-  <h1 class="text-center mt-4">
-    Authentication Django Project
-  </h1>
-  <a class="btn btn-primary" href="{% url 'tweet_create' %}">Create a Tweet</a>
-  <div class="continer row gap-3">
+  <h1 class="text-center mt-4">Authentication Django Project</h1>
+  <div class="text-center mb-4">
+    <a class="btn btn-primary" href="{% url 'tweet_create' %}">Create a Tweet</a>
+  </div>
+  <div class="container row row-cols-1 row-cols-md-3 g-4">
     {% for tweet in tweets %}
-    <div class="card" style="width: 18rem;">
-        <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{tweet.user.username}}</h5>
-          <p class="card-text">{{tweet.text}}</p>
-          {% if tweet.user == user %}
-          <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
-          <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          {% if tweet.photo %}
+            <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet Image">
+          {% else %}
+            <div class="card-img-top bg-secondary text-white d-flex justify-content-center align-items-center" style="height: 200px;">
+              <span>No Image</span>
+            </div>
           {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ tweet.user.username }}</h5>
+            <p class="card-text">{{ tweet.text }}</p>
+            {% if tweet.user == user %}
+              <div class="d-flex justify-content-between">
+                <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+              </div>
+            {% endif %}
+          </div>
         </div>
       </div>
     {% endfor %}
